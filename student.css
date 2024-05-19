@@ -1,0 +1,45 @@
+/* STUDENT STYLING */
+.student-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  border-collapse: collapse;
+  gap: 0.5rem;
+
+  justify-content: end;
+}
+
+.student {
+  padding: 0.75rem;
+  background-color: var(--surface);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student .material-symbols-outlined {
+  font-size: 1rem;
+}
+
+.student .student-functions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.student button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+
+  padding: 0.5rem;
+}
+
+.student button:hover {
+  background-color: var(--surface-container);
+}

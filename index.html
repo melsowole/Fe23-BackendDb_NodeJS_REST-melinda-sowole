@@ -7,142 +7,182 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Students</h1>
-    <ul class="student-list">
-      <li>
-        <div class="student">
-          <b
-            ><span class="fName">Gregory</span>
-            <span class="lName">House</span></b
-          >
-          <span class="town">(Baltimore)</span>
-
-          <div class="student-functions">
-            <button>
-              <span class="material-symbols-outlined"> edit </span>
-            </button>
-            <button>
-              <span class="material-symbols-outlined"> delete </span>
-            </button>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="student">
-          <b
-            ><span class="fName">Christopher</span>
-            <span class="lName">Foreman</span></b
-          >
-          <span class="town">(Philadelphia)</span>
-
-          <div class="student-functions">
-            <button>
-              <span class="material-symbols-outlined"> edit </span>
-            </button>
-            <button>
-              <span class="material-symbols-outlined"> delete </span>
-            </button>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="student">
-          <b
-            ><span class="fName">Chase</span>
-            <span class="lName">Bradford</span></b
-          >
-          <span class="town">(Brisbane)</span>
-
-          <div class="student-functions">
-            <button>
-              <span class="material-symbols-outlined"> edit </span>
-            </button>
-            <button>
-              <span class="material-symbols-outlined"> delete </span>
-            </button>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="student">
-          <b
-            ><span class="fName">Cameron</span>
-            <span class="lName">Steinsgate</span></b
-          >
-          <span class="town">(New York)</span>
-          <div class="student-functions">
-            <button>
-              <span class="material-symbols-outlined"> edit </span>
-            </button>
-            <button>
-              <span class="material-symbols-outlined"> delete </span>
-            </button>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="student">
-          <b
-            ><span class="fName">James</span>
-            <span class="lName">Wilson</span></b
-          >
-          <span class="town">(Baltimore)</span>
-
-          <div class="student-functions">
-            <button>
-              <span class="material-symbols-outlined"> edit </span>
-            </button>
-            <button>
-              <span class="material-symbols-outlined"> delete </span>
-            </button>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="student">
-          <b
-            ><span class="fName">Cuddy</span>
-            <span class="lName">Coleman</span></b
-          >
-          <span class="town">(Baltimore)</span>
-
-          <div class="student-functions">
-            <button>
-              <span class="material-symbols-outlined"> edit </span>
-            </button>
-            <button>
-              <span class="material-symbols-outlined"> delete </span>
-            </button>
-          </div>
-        </div>
-      </li>
-    </ul>
-
-    <h2>Add student</h2>
-    <form action="" class="create">
-      <div class="half">
-        <div>
-          <label for="fName">First name</label>
-          <input required type="text" id="fName" name="fName" />
-        </div>
-
-        <div>
-          <label for="lName">Last name</label>
-          <input required type="text" id="lName" name="lName" />
-        </div>
+    <header>
+      <div class="logo-wrapper">
+        <?xml version="1.0" encoding="UTF-8"?><svg
+          id="logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 135.16 175.83"
+        >
+          <path
+            class="cls-1"
+            d="m58.49,142.89l-1.17,1.81c-.43.67-1.42.88-2.17.47-2.36-1.29-7.41-4.33-13.37-9.54-1.63-1.43-3.32-3.01-5.05-4.77-2.27-2.31-4.59-4.92-6.89-7.85-.85-1.08-2.81-.58-2.81.72v40.46c0,.67-.6,1.23-1.36,1.29h-.01c-1.38-2.11-2.75-4.29-4.09-6.56v-35.19c0-1.3-1.96-1.8-2.81-.72-3.16,4.02-6.38,7.46-9.43,10.33-.33-.86-.64-1.73-.95-2.6-.32-.89-.63-1.79-.94-2.71,4.68-4.71,9.62-10.74,13.97-18.26.1-.18.16-.38.16-.59v-8.53c0-1.29-1.94-1.8-2.79-.75-5.4,6.67-10.92,11.39-15.2,14.51-.21-.9-.42-1.81-.62-2.74-.17-.79-.34-1.61-.51-2.42-.01-.09-.03-.17-.05-.26,5.66-4.51,12.97-11.68,19.01-22.09.1-.19.16-.38.16-.59v-6.32c0-1.26-1.88-1.79-2.76-.78-6.32,7.21-12.54,11.2-15.26,12.73-.75.43-1.75.21-2.18-.46l-1.18-1.8c-.39-.6-.17-1.35.49-1.73,3.07-1.78,11.54-7.34,18.67-17.99.7-1.04,1.38-2.12,2.05-3.26.11-.19.17-.39.17-.59v-4.14c0-1.22-1.78-1.78-2.7-.85-3.72,3.77-7.16,6.06-9.02,7.16-.74.44-1.76.23-2.2-.44l-1.17-1.8c-.38-.59-.19-1.33.46-1.72,2.71-1.62,9.65-6.41,14.84-15.54l1.12-2.16c.27-.52.84-.78,1.4-.78s1.13.26,1.4.78l1.18,2.26c3.54,6.16,7.86,10.34,11.11,12.88,1.53,1.21,2.82,2.05,3.68,2.56.64.39.84,1.13.46,1.72l-1.17,1.8c-.04.06-.09.12-.13.17-.03.04-.07.07-.1.1-.51.45-1.35.54-1.98.17-.03-.02-.06-.03-.09-.05-1.87-1.11-5.28-3.4-8.93-7.12-.92-.92-2.7-.37-2.7.86v4.14c0,.2.06.4.16.59.46.78.92,1.53,1.39,2.27,6.1,9.47,13.35,15.11,17.4,17.77.78.51,1.44.91,1.95,1.21.66.38.87,1.13.48,1.73l-1.18,1.8c-.43.67-1.43.89-2.18.46-.66-.37-1.53-.88-2.55-1.56-3.19-2.1-7.92-5.71-12.71-11.17-.88-1.02-2.76-.49-2.76.78v6.32c0,.21.05.4.16.59,2.32,4,4.82,7.52,7.35,10.59,1.55,1.89,3.11,3.61,4.64,5.16,5.19,5.3,10.03,8.75,13.06,10.66.8.5,1.47.9,1.99,1.19.67.38.88,1.13.49,1.73l-1.17,1.81c-.43.66-1.42.88-2.17.47-.56-.31-1.28-.72-2.13-1.25-3.31-2.04-8.59-5.76-14.23-11.52-1.53-1.57-3.1-3.29-4.65-5.18-.19-.22-.37-.44-.55-.66-.86-1.06-2.79-.54-2.79.75v8.53c0,.21.05.41.16.59,4.13,7.12,8.77,12.91,13.23,17.5,1.71,1.78,3.4,3.38,5.02,4.8,5.63,4.98,10.4,7.89,12.55,9.09.68.38.89,1.13.5,1.73Z"
+          />
+          <path
+            class="cls-1"
+            d="m110.61,142.61l-1.47,2.66c-.23.42-.6.72-1.02.86-.55.21-1.18.16-1.71-.18-2.45-1.56-7.22-4.89-13.04-10.33-1.18-1.09-2.4-2.28-3.65-3.56-4.79-4.87-10.04-11.05-15.17-18.68-1.07-1.58-3.54-.84-3.54,1.07v59.45c0,1.06-.86,1.93-1.92,1.93h-3.02c-1.07,0-1.93-.87-1.93-1.93v-59.45c0-1.91-2.47-2.65-3.53-1.06-5.13,7.64-10.39,13.81-15.17,18.68-1.26,1.28-2.48,2.46-3.66,3.56-5.81,5.44-10.58,8.76-13.03,10.32-.54.34-1.17.39-1.72.18-.42-.15-.78-.45-1.01-.86l-1.47-2.66c-.5-.88-.22-1.99.62-2.55.51-.33,1.13-.75,1.86-1.26,2.34-1.65,5.74-4.26,9.7-7.94,1.19-1.1,2.42-2.3,3.69-3.59,2.81-2.85,5.79-6.17,8.83-10.01.99-1.26,1.99-2.58,2.99-3.95,4.01-5.52,8.02-11.95,11.7-19.37.13-.27.2-.57.2-.87v-12.54c0-1.88-2.43-2.65-3.51-1.1-7.83,11.27-15.85,18.77-21.45,23.22-1.61,1.27-3.01,2.3-4.16,3.09-1.53-1.57-3.1-3.29-4.65-5.18,1.05-.7,2.47-1.72,4.17-3.07,2.25-1.77,4.97-4.12,7.96-7.11,1.13-1.11,2.3-2.33,3.48-3.64,5.88-6.44,12.36-15.14,17.96-26.41.13-.27.2-.57.2-.87v-9.28c0-1.86-2.36-2.64-3.48-1.15-7.94,10.59-15.78,16.45-19.2,18.71-.2.13-.41.22-.63.27-.81.19-1.69-.17-2.12-.94l-1.47-2.66c-.49-.88-.23-1.98.6-2.54.05-.03.1-.06.15-.11,4.38-2.97,16.64-12.54,25.94-31.12.14-.27.21-.57.21-.87v-6.08c0-1.79-2.24-2.61-3.4-1.24-4.67,5.53-9.01,8.91-11.35,10.52-.93.64-2.22.34-2.77-.65l-1.47-2.64c-.48-.87-.24-1.96.57-2.53,3.42-2.38,12.15-9.43,18.69-22.84l1.41-3.17c.34-.76,1.05-1.14,1.77-1.14s1.42.38,1.76,1.14l1.47,3.32c6.55,13.32,15.23,20.32,18.62,22.7.81.56,1.06,1.65.58,2.51l-1.48,2.65c-.55.99-1.84,1.29-2.77.65-2.34-1.61-6.68-4.99-11.36-10.53-1.16-1.37-3.4-.54-3.4,1.25v6.08c0,.3.07.6.21.87,9.31,18.59,21.59,28.16,25.96,31.13.05.04.1.07.14.1.83.56,1.09,1.66.6,2.54l-1.47,2.66c-.43.77-1.3,1.13-2.11.94h0c-.22-.05-.43-.14-.63-.27-3.42-2.26-11.26-8.12-19.21-18.72-1.11-1.48-3.48-.71-3.48,1.15v9.29c0,.3.07.6.21.87,5.6,11.27,12.08,19.97,17.94,26.42,1.19,1.3,2.36,2.52,3.48,3.64,2.99,2.98,5.72,5.33,7.96,7.11,1.7,1.34,3.12,2.36,4.17,3.07-1.55,1.88-3.11,3.6-4.64,5.17-1.14-.79-2.55-1.81-4.15-3.09-5.6-4.45-13.63-11.95-21.46-23.22-1.07-1.55-3.51-.79-3.51,1.1v12.54c0,.3.07.6.21.87,3.68,7.41,7.68,13.84,11.7,19.36,1,1.37,2,2.69,2.99,3.95,3.03,3.84,6.02,7.17,8.83,10.02,1.27,1.29,2.5,2.48,3.68,3.58,3.96,3.68,7.36,6.29,9.7,7.94.73.52,1.36.94,1.87,1.27.84.56,1.12,1.67.62,2.55Z"
+          />
+          <path
+            class="cls-1"
+            d="m134.97,89.68l-1.18,1.8c-.43.67-1.44.89-2.18.46-2.72-1.53-8.95-5.52-15.26-12.73-.89-1.02-2.77-.49-2.77.78v6.32c0,.21.06.4.17.59,6.04,10.41,13.34,17.58,19,22.09-.37,1.84-.76,3.63-1.18,5.42-4.27-3.12-9.79-7.84-15.2-14.51-.85-1.06-2.79-.54-2.79.75v8.53c0,.21.06.41.17.59,4.35,7.51,9.28,13.54,13.96,18.25-.6,1.81-1.23,3.58-1.88,5.32-3.06-2.87-6.28-6.31-9.44-10.33-.84-1.08-2.81-.58-2.81.72v35.19c-1.34,2.27-2.7,4.45-4.09,6.56-.77-.06-1.37-.61-1.37-1.29v-40.46c0-1.3-1.96-1.8-2.81-.72-2.29,2.92-4.62,5.53-6.89,7.84-1.73,1.76-3.42,3.35-5.05,4.77-5.96,5.22-11.01,8.26-13.37,9.55-.74.41-1.73.2-2.16-.47l-1.18-1.81c-.39-.6-.17-1.35.5-1.73,2.14-1.2,6.92-4.11,12.56-9.1,1.62-1.41,3.31-3.01,5.02-4.79,4.46-4.59,9.1-10.38,13.22-17.5.11-.18.16-.38.16-.59v-8.53c0-1.29-1.93-1.8-2.79-.75-.18.23-.37.45-.56.67-1.55,1.88-3.11,3.6-4.64,5.17-5.63,5.75-10.9,9.46-14.22,11.51-.85.53-1.57.95-2.14,1.26-.75.41-1.74.19-2.17-.47l-1.17-1.81c-.39-.6-.18-1.35.49-1.73.52-.29,1.2-.69,2-1.2,3.03-1.91,7.87-5.36,13.06-10.65,1.52-1.55,3.07-3.27,4.62-5.15,2.53-3.07,5.04-6.6,7.36-10.6.11-.19.16-.38.16-.59v-6.32c0-1.26-1.87-1.79-2.76-.78-4.79,5.47-9.53,9.09-12.72,11.18-1.02.67-1.88,1.18-2.54,1.55-.74.43-1.74.21-2.18-.46l-1.17-1.8c-.39-.6-.18-1.35.48-1.73.51-.29,1.16-.69,1.93-1.2,4.05-2.65,11.31-8.3,17.41-17.78.47-.74.93-1.49,1.39-2.27.11-.19.16-.39.16-.59v-4.14c0-1.22-1.78-1.78-2.7-.85-3.65,3.71-7.06,6-8.92,7.11-.03.02-.06.03-.09.05-.64.37-1.47.28-1.98-.17-.03-.03-.07-.06-.09-.1h0s-.09-.11-.13-.17l-1.17-1.8c-.38-.59-.18-1.33.46-1.72.87-.52,2.16-1.35,3.69-2.55,3.27-2.56,7.62-6.77,11.16-12.99l1.12-2.16c.27-.52.84-.78,1.4-.78s1.13.26,1.4.78l1.17,2.26c5.2,9.06,12.1,13.83,14.8,15.44.64.39.83,1.13.45,1.72l-1.17,1.8c-.44.67-1.46.88-2.21.44-1.85-1.1-5.3-3.39-9.02-7.17-.92-.92-2.7-.37-2.7.86v4.14c0,.2.06.4.17.59.67,1.14,1.35,2.22,2.05,3.26,7.14,10.65,15.61,16.21,18.68,17.99.66.38.87,1.13.49,1.73Z"
+          />
+        </svg>
       </div>
 
-      <div>
-        <label for="town">Town</label>
-        <input required type="text" id="town" name="town" />
-      </div>
+      <nav>
+        <a href="/">Dashboard</a>
+        <a href="/students">Students</a>
+        <a href="/courses">Courses</a>
+      </nav>
+    </header>
 
-      <input type="submit" value="Add Student" />
-    </form>
+    <main>
+      <h1>Students</h1>
+
+      <section>
+        <button class="toggle-create-form col-accent">
+          <span class="material-symbols-outlined"> add </span>
+          <b>Add Student</b>
+        </button>
+
+        <section class="create-form-wrapper">
+          <h2>Add student</h2>
+          <form action="" class="create">
+            <div class="half">
+              <div>
+                <label for="fName">First name</label>
+                <input required type="text" id="fName" name="fName" />
+              </div>
+              <div>
+                <label for="lName">Last name</label>
+                <input required type="text" id="lName" name="lName" />
+              </div>
+            </div>
+            <div>
+              <label for="town">Town</label>
+              <input required type="text" id="town" name="town" />
+            </div>
+
+            <h3>Enroll in course</h3>
+
+            <input
+              type="submit"
+              value="Add Student"
+              class="rounded col-accent"
+            />
+          </form>
+        </section>
+      </section>
+
+      <section>
+        <h2>All Students</h2>
+        <ul class="student-list">
+          <li>
+            <div class="student">
+              <b
+                ><span class="fName">Gregory</span>
+                <span class="lName">House</span></b
+              >
+              <span class="town">(Baltimore)</span>
+              <div class="student-functions">
+                <button>
+                  <span class="material-symbols-outlined"> edit </span>
+                </button>
+                <button>
+                  <span class="material-symbols-outlined"> delete </span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="student">
+              <b
+                ><span class="fName">Christopher</span>
+                <span class="lName">Foreman</span></b
+              >
+              <span class="town">(Philadelphia)</span>
+              <div class="student-functions">
+                <button>
+                  <span class="material-symbols-outlined"> edit </span>
+                </button>
+                <button>
+                  <span class="material-symbols-outlined"> delete </span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="student">
+              <b
+                ><span class="fName">Chase</span>
+                <span class="lName">Bradford</span></b
+              >
+              <span class="town">(Brisbane)</span>
+              <div class="student-functions">
+                <button>
+                  <span class="material-symbols-outlined"> edit </span>
+                </button>
+                <button>
+                  <span class="material-symbols-outlined"> delete </span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="student">
+              <b
+                ><span class="fName">Cameron</span>
+                <span class="lName">Steinsgate</span></b
+              >
+              <span class="town">(New York)</span>
+              <div class="student-functions">
+                <button>
+                  <span class="material-symbols-outlined"> edit </span>
+                </button>
+                <button>
+                  <span class="material-symbols-outlined"> delete </span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="student">
+              <b
+                ><span class="fName">James</span>
+                <span class="lName">Wilson</span></b
+              >
+              <span class="town">(Baltimore)</span>
+              <div class="student-functions">
+                <button>
+                  <span class="material-symbols-outlined"> edit </span>
+                </button>
+                <button>
+                  <span class="material-symbols-outlined"> delete </span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="student">
+              <b
+                ><span class="fName">Cuddy</span>
+                <span class="lName">Coleman</span></b
+              >
+              <span class="town">(Baltimore)</span>
+              <div class="student-functions">
+                <button>
+                  <span class="material-symbols-outlined"> edit </span>
+                </button>
+                <button>
+                  <span class="material-symbols-outlined"> delete </span>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>&copy; Evergreen Valley University 2024</footer>
   </body>
 </html>

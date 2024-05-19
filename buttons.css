@@ -1,0 +1,31 @@
+button,
+input[type="submit"] {
+  cursor: pointer;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+button.rounded,
+input[type="submit"].rounded {
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+button.col-accent,
+input[type="submit"].col-accent {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+button.col-surface,
+input[type="submit"].col-surface {
+  background-color: var(--surface-container);
+  color: var(--on-surface);
+}

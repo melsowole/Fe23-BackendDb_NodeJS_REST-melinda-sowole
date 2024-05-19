@@ -1,0 +1,31 @@
+/* HEADER */
+body > header {
+  background-color: var(--surface-container);
+}
+
+.logo-wrapper {
+  height: 5rem;
+  background-color: var(--primary);
+  padding: 1rem;
+}
+
+#logo {
+  height: 100%;
+  fill: var(--on-primary);
+}
+
+body > header nav {
+  display: flex;
+  flex-direction: column;
+}
+
+body > header nav > * {
+  padding: 1rem;
+  border-bottom: 1px solid var(--surface-container-higher);
+  color: var(--on-surface);
+  text-decoration: none;
+}
+
+body > header nav > *:hover {
+  background-color: var(--surface);
+}

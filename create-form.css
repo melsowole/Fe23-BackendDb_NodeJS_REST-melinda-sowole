@@ -1,0 +1,60 @@
+/*  CREATE FORM STYLING */
+
+button.toggle-create-form {
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+
+  display: flex;
+  align-items: center;
+}
+
+button.toggle-create-form.active {
+  background-color: var(--surface-container);
+  color: var(--on-surface);
+}
+
+.create-form-wrapper {
+  background-color: var(--surface-container);
+  color: var(--on-surface);
+
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+form.create {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form.create input {
+  font-size: 1rem;
+}
+
+form.create input[type="text"] {
+  width: 100%;
+  background-color: var(--primary-container);
+  color: var(--on-primary-container);
+  outline: none;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+form.create input[type="submit"] {
+  width: fit-content;
+}
+
+form.create input:focus {
+  box-shadow: 0px 0px 0px 1px var(--primary) inset;
+}
+
+form.create .half {
+  display: flex;
+  gap: 1rem;
+}
+
+form.create .half div {
+  flex-grow: 1;
+}
