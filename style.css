@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+:root {
+  --primary: #59641f;
+  --on-primary: #ffffff;
+  --primary-container: #ddea96;
+  --on-primary-container: #191e00;
+
+  --secondary: #00696b;
+  --on-secondary: #ffffff;
+  --secondary-container: #9cf1f2;
+  --on-secondary-container: #002020;
+
+  --tertiary: #735187;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #f4d9ff;
+  --on-tertiary-container: #2b0b3f;
+  --extra: #b3d022;
+
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #410002;
+
+  --surface: #f4fbfa;
+  --on-surface: #161d1d;
+  --surface-container: #e9efee;
+  --surface-container-low: #eff5f4;
+  --surface-container-high: #e3e9e9;
+
+  --background: white;
+  --on-background: black;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
+}
+
+b,
+span {
+  padding: 0;
+  margin: 0;
+}
+
+/*  CREATE FORM STYLING */
+form.create {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+form.create input {
+  font-size: 1rem;
+}
+
+form.create input[type="text"] {
+  width: 100%;
+  background-color: var(--primary-container);
+  color: var(--on-primary-container);
+  outline: none;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+form.create input[type="submit"] {
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  width: fit-content;
+}
+
+form.create input:focus {
+  box-shadow: 0px 0px 0px 1px var(--primary) inset;
+}
+
+form.create .half {
+  display: flex;
+  gap: 1rem;
+}
+
+form.create .half div {
+  flex-grow: 1;
+}
+
+/* STUDENT STYLING */
+.student-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  border-collapse: collapse;
+  gap: 0.5rem;
+
+  justify-content: end;
+}
+
+.student {
+  padding: 0.75rem;
+  background-color: var(--surface);
+  display: flex;
+  justify-content: space-between;
+}
+
+.student .material-symbols-outlined {
+  font-size: 1rem;
+}
+
+.student button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  padding: 0.5rem;
+}
