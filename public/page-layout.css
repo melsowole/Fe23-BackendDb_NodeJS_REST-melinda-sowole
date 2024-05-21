@@ -24,14 +24,11 @@ main {
 
   display: flex;
   flex-direction: column;
+  max-width: 900px;
 }
 
 main > section {
   margin-top: 1rem;
-}
-
-body > footer {
-  background-color: pink;
 }
 
 /* HEADER */

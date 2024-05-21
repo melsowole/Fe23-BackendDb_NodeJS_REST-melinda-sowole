@@ -1,6 +1,6 @@
 import { Router } from "express";
-import api from "../modules/api/api.js";
-import { DBError, sendError } from "../modules/db/DBError.js";
+import api from "../api/api.js";
+import { DBError, sendError } from "../db/DBError.js";
 import { containsInvalidQueries } from "./helper.js";
 
 const route = Router();
@@ -43,6 +43,27 @@ route
     try {
       const student = await api.students.getById(req.params.id);
       res.json(student);
+    } catch (err) {
+      sendError(res, err);
+    }
+  })
+  .patch(async (req, res) => {
+    try {
+      const { fName, lName, town } = req.body;
+      if (!fName || !lName || !town) {
+        throw new DBError(
+          400,
+          "fName, lName and town are all required fields!"
+        );
+      }
+
+      const result = await api.students.update(
+        req.params.id,
+        fName,
+        lName,
+        town
+      );
+      res.json(result);
     } catch (err) {
       sendError(res, err);
     }

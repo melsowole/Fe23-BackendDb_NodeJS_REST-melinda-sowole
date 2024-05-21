@@ -1,0 +1,201 @@
+<h1>Student Profile</h1>
+<div class="id" id="<%=student.student_id%>"></div>
+<section class="student-profile">
+  <div class="title-button-wrapper">
+    <h2>Info</h2>
+    <button id="edit-info" class="icon">edit</button>
+  </div>
+  <form action="/student/:id" method="post">
+    <div>
+      <label for="fName">First Name</label>
+      <input
+        type="text"
+        name="fName"
+        id="fName"
+        value="<%-student.fName%>"
+        disabled
+        required
+      />
+    </div>
+
+    <div>
+      <label for="lName">Last Name</label>
+      <input
+        type="text"
+        name="lName"
+        id="lName"
+        value="<%-student.lName%>"
+        disabled
+        required
+      />
+    </div>
+
+    <div>
+      <label for="town">Town</label>
+
+      <input
+        type="text"
+        name="town"
+        id="town"
+        value="<%-student.town%>"
+        disabled
+        required
+      />
+    </div>
+
+    <button type="submit">Save</button>
+  </form>
+</section>
+
+<hr />
+
+<section class="student-courses">
+  <h2>Student Courses</h2>
+
+  <div class="course-list">
+    <% student.courses.forEach(course=>{%>
+    <div class="student-course" id="course_<%-course.course_id%>">
+      <div>
+        <b><%- course.name%>: </b>
+        <span><%- course.description%></span>
+      </div>
+      <button class="unenroll-student">Unenroll student from course</button>
+    </div>
+    <%})%>
+  </div>
+
+  <form class="enroll-in-course" action="/student/:id" method="POST">
+    <div>
+      <label for="course_id">Enroll in course</label>
+      <select name="course_id" id="course_id" required>
+        <option value="" disabled selected>Select a course</option>
+        <!-- OPTIONS ALTERNATIVES1 -->
+      </select>
+    </div>
+    <button type="submit">enroll</button>
+  </form>
+</section>
+
+<!-- make profile editable -->
+<script>
+  const editInfoButton = document.getElementById("edit-info");
+  const infoInputs = document.querySelectorAll(".student-profile input");
+  console.log(infoInputs);
+  const infoInputsData = Array.from(infoInputs).map((input) => input.value);
+  const infoForm = document.querySelector(".student-profile form");
+
+  editInfoButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (infoForm.classList.contains("editable")) {
+      console.log("cannot edit now", infoForm.classList);
+      infoForm.classList.remove("editable");
+      editInfoButton.textContent = "edit";
+      infoInputs.forEach((input, i) => {
+        input.disabled = true;
+        input.value = infoInputsData[i];
+      });
+    } else {
+      infoForm.classList.add("editable");
+      console.log("can edit now", infoForm.classList);
+      editInfoButton.textContent = "cancel";
+      infoInputs.forEach((input) => (input.disabled = false));
+    }
+  });
+
+  infoForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const student_id = document.querySelector(".id").id;
+
+    const formData = new FormData(infoForm);
+
+    const data = Object.fromEntries(formData);
+
+    fetch("http://localhost:3000/api/students/" + student_id, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((r) => r.json())
+      .then((r) => {
+        infoInputs.forEach((input, i) => {
+          input.disabled = true;
+        });
+        location.reload();
+      });
+  });
+</script>
+
+<!-- enroll in courses -->
+<script>
+  const enrollForm = document.querySelector(".enroll-in-course");
+
+  enrollForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const student_id = document.querySelector(".id").id;
+
+    const formData = new FormData(enrollForm);
+    formData.append("student_id", student_id);
+
+    const data = Object.fromEntries(formData);
+
+    fetch("http://localhost:3000/api/enrollments", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((r) => r.json())
+      .then((r) => {
+        document.querySelector("option").selected = true;
+        location.reload();
+      });
+  });
+</script>
+
+<!-- link courses to course page -->
+<script>
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("unenroll-student")) {
+      console.log("unenroll student");
+
+      const course_id = e.target.closest(".student-course").id.split("_")[1];
+      const student_id = document.querySelector(".id").id;
+
+      if (confirm("Are you sure you want to unenroll student from course?")) {
+        fetch("http://localhost:3000/api/enrollments", {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            student_id,
+            course_id,
+          }),
+        })
+          .then((r) => r.json())
+          .then((r) => {
+            location.reload();
+          });
+      }
+    } else if (e.target.closest(".student-course")) {
+      const course_id = e.target.closest(".student-course").id.split("_")[1];
+      location.href = "/course/" + course_id;
+    }
+  });
+</script>
+
+<!-- unenroll from course -->
+<script>
+  document.addEventListener("click", (e) => {
+    e.stopImmediatePropagation();
+
+    if (e.target.classList.contains("unenroll-student")) {
+    }
+  });
+</script>

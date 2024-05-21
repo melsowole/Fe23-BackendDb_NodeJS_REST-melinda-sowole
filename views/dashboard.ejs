@@ -1,0 +1,27 @@
+<h1>Dashboard</h1>
+
+<section class="dashboard">
+  <div class="dashboard-card">
+    <div class="icon">
+      <span class="material-symbols-outlined"> groups </span>
+    </div>
+    <div class="vr"></div>
+    <div>
+      <b>Students</b>
+      <p><%= locals.students.length%></p>
+      <a href="/students">View all Students</a>
+    </div>
+  </div>
+
+  <div class="dashboard-card">
+    <div class="icon">
+      <span class="material-symbols-outlined"> school </span>
+    </div>
+    <div class="vr"></div>
+    <div>
+      <b>Courses</b>
+      <p><%= locals.courses.length%></p>
+      <a href="/courses">View all Courses</a>
+    </div>
+  </div>
+</section>

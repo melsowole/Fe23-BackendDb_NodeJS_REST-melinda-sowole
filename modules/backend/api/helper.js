@@ -22,8 +22,6 @@ export function addStudentsToCourses(array) {
     }
   });
 
-  console.log(newArray);
-
   return newArray;
 
   function createStudentObj(student_id, fName, lName, town) {

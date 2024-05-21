@@ -58,3 +58,14 @@ form.create .half {
 form.create .half div {
   flex-grow: 1;
 }
+
+/* toggle hide styling */
+.hidden {
+  display: none;
+  transform: scaleY(0);
+}
+
+.create-form-wrapper {
+  transition: 2s;
+  transform: scaleY(100%);
+}

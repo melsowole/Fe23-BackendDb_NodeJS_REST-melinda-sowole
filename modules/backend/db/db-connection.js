@@ -22,7 +22,6 @@ export default {
         const [data] = await pool.query(sql, values);
         resolve(data);
       } catch (err) {
-        console.log(err);
         reject(new DBError(500, err.message));
       }
     });

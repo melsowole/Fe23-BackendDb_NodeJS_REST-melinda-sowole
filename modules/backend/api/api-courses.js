@@ -57,8 +57,6 @@ export default {
 
     const [course] = addStudentsToCourses(result);
 
-    console.log(course);
-
     return course;
   },
   async delete(id) {

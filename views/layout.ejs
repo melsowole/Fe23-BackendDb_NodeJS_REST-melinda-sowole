@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../public/style.css" />
+    <link rel="stylesheet" href="/style.css" />
     <title>Grit Academy</title>
   </head>
   <body>
     <header>
       <div class="logo-wrapper">
-        <?xml version="1.0" encoding="UTF-8"?><svg
+        <!-- <?xml version="1.0" encoding="UTF-8"?><svg
           id="logo"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 135.16 175.83"
@@ -26,7 +26,7 @@
             class="cls-1"
             d="m134.97,89.68l-1.18,1.8c-.43.67-1.44.89-2.18.46-2.72-1.53-8.95-5.52-15.26-12.73-.89-1.02-2.77-.49-2.77.78v6.32c0,.21.06.4.17.59,6.04,10.41,13.34,17.58,19,22.09-.37,1.84-.76,3.63-1.18,5.42-4.27-3.12-9.79-7.84-15.2-14.51-.85-1.06-2.79-.54-2.79.75v8.53c0,.21.06.41.17.59,4.35,7.51,9.28,13.54,13.96,18.25-.6,1.81-1.23,3.58-1.88,5.32-3.06-2.87-6.28-6.31-9.44-10.33-.84-1.08-2.81-.58-2.81.72v35.19c-1.34,2.27-2.7,4.45-4.09,6.56-.77-.06-1.37-.61-1.37-1.29v-40.46c0-1.3-1.96-1.8-2.81-.72-2.29,2.92-4.62,5.53-6.89,7.84-1.73,1.76-3.42,3.35-5.05,4.77-5.96,5.22-11.01,8.26-13.37,9.55-.74.41-1.73.2-2.16-.47l-1.18-1.81c-.39-.6-.17-1.35.5-1.73,2.14-1.2,6.92-4.11,12.56-9.1,1.62-1.41,3.31-3.01,5.02-4.79,4.46-4.59,9.1-10.38,13.22-17.5.11-.18.16-.38.16-.59v-8.53c0-1.29-1.93-1.8-2.79-.75-.18.23-.37.45-.56.67-1.55,1.88-3.11,3.6-4.64,5.17-5.63,5.75-10.9,9.46-14.22,11.51-.85.53-1.57.95-2.14,1.26-.75.41-1.74.19-2.17-.47l-1.17-1.81c-.39-.6-.18-1.35.49-1.73.52-.29,1.2-.69,2-1.2,3.03-1.91,7.87-5.36,13.06-10.65,1.52-1.55,3.07-3.27,4.62-5.15,2.53-3.07,5.04-6.6,7.36-10.6.11-.19.16-.38.16-.59v-6.32c0-1.26-1.87-1.79-2.76-.78-4.79,5.47-9.53,9.09-12.72,11.18-1.02.67-1.88,1.18-2.54,1.55-.74.43-1.74.21-2.18-.46l-1.17-1.8c-.39-.6-.18-1.35.48-1.73.51-.29,1.16-.69,1.93-1.2,4.05-2.65,11.31-8.3,17.41-17.78.47-.74.93-1.49,1.39-2.27.11-.19.16-.39.16-.59v-4.14c0-1.22-1.78-1.78-2.7-.85-3.65,3.71-7.06,6-8.92,7.11-.03.02-.06.03-.09.05-.64.37-1.47.28-1.98-.17-.03-.03-.07-.06-.09-.1h0s-.09-.11-.13-.17l-1.17-1.8c-.38-.59-.18-1.33.46-1.72.87-.52,2.16-1.35,3.69-2.55,3.27-2.56,7.62-6.77,11.16-12.99l1.12-2.16c.27-.52.84-.78,1.4-.78s1.13.26,1.4.78l1.17,2.26c5.2,9.06,12.1,13.83,14.8,15.44.64.39.83,1.13.45,1.72l-1.17,1.8c-.44.67-1.46.88-2.21.44-1.85-1.1-5.3-3.39-9.02-7.17-.92-.92-2.7-.37-2.7.86v4.14c0,.2.06.4.17.59.67,1.14,1.35,2.22,2.05,3.26,7.14,10.65,15.61,16.21,18.68,17.99.66.38.87,1.13.49,1.73Z"
           />
-        </svg>
+        </svg> -->
       </div>
 
       <nav>
@@ -36,152 +36,7 @@
       </nav>
     </header>
 
-    <main>
-      <h1>Students</h1>
-
-      <section>
-        <button class="toggle-create-form col-accent">
-          <span class="material-symbols-outlined"> add </span>
-          <b>Add Student</b>
-        </button>
-
-        <section class="create-form-wrapper">
-          <h2>Add student</h2>
-          <form action="" class="create">
-            <div class="half">
-              <div>
-                <label for="fName">First name</label>
-                <input required type="text" id="fName" name="fName" />
-              </div>
-              <div>
-                <label for="lName">Last name</label>
-                <input required type="text" id="lName" name="lName" />
-              </div>
-            </div>
-            <div>
-              <label for="town">Town</label>
-              <input required type="text" id="town" name="town" />
-            </div>
-
-            <h3>Enroll in course</h3>
-
-            <input
-              type="submit"
-              value="Add Student"
-              class="rounded col-accent"
-            />
-          </form>
-        </section>
-      </section>
-
-      <section>
-        <h2>All Students</h2>
-        <ul class="student-list">
-          <li>
-            <div class="student">
-              <b
-                ><span class="fName">Gregory</span>
-                <span class="lName">House</span></b
-              >
-              <span class="town">(Baltimore)</span>
-              <div class="student-functions">
-                <button>
-                  <span class="material-symbols-outlined"> edit </span>
-                </button>
-                <button>
-                  <span class="material-symbols-outlined"> delete </span>
-                </button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="student">
-              <b
-                ><span class="fName">Christopher</span>
-                <span class="lName">Foreman</span></b
-              >
-              <span class="town">(Philadelphia)</span>
-              <div class="student-functions">
-                <button>
-                  <span class="material-symbols-outlined"> edit </span>
-                </button>
-                <button>
-                  <span class="material-symbols-outlined"> delete </span>
-                </button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="student">
-              <b
-                ><span class="fName">Chase</span>
-                <span class="lName">Bradford</span></b
-              >
-              <span class="town">(Brisbane)</span>
-              <div class="student-functions">
-                <button>
-                  <span class="material-symbols-outlined"> edit </span>
-                </button>
-                <button>
-                  <span class="material-symbols-outlined"> delete </span>
-                </button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="student">
-              <b
-                ><span class="fName">Cameron</span>
-                <span class="lName">Steinsgate</span></b
-              >
-              <span class="town">(New York)</span>
-              <div class="student-functions">
-                <button>
-                  <span class="material-symbols-outlined"> edit </span>
-                </button>
-                <button>
-                  <span class="material-symbols-outlined"> delete </span>
-                </button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="student">
-              <b
-                ><span class="fName">James</span>
-                <span class="lName">Wilson</span></b
-              >
-              <span class="town">(Baltimore)</span>
-              <div class="student-functions">
-                <button>
-                  <span class="material-symbols-outlined"> edit </span>
-                </button>
-                <button>
-                  <span class="material-symbols-outlined"> delete </span>
-                </button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="student">
-              <b
-                ><span class="fName">Cuddy</span>
-                <span class="lName">Coleman</span></b
-              >
-              <span class="town">(Baltimore)</span>
-              <div class="student-functions">
-                <button>
-                  <span class="material-symbols-outlined"> edit </span>
-                </button>
-                <button>
-                  <span class="material-symbols-outlined"> delete </span>
-                </button>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </main>
+    <main><%- body %></main>
 
     <footer>&copy; Evergreen Valley University 2024</footer>
   </body>

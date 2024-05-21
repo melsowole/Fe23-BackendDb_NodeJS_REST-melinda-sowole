@@ -1,0 +1,101 @@
+<% if (locals.open) { %>
+  <%- include('partials/confirmation-message.ejs', { message: "student added" }) %>
+<% } %>
+
+
+<h1>Students</h1>
+
+<section>
+
+  <button class="toggle-create-form <%= locals.open ? 'col-surface' : 'col-accent'%>">
+    <span class="material-symbols-outlined icon"> <%= locals.open ? "remove" : "add"%> </span>
+    <b>Add Student</b>
+  </button>
+
+  <section class="create-form-wrapper <%= locals.open ? "" : "hidden"%>">
+    <h2>Add student</h2>
+    <form action="" method="POST" class="create">
+      <div class="half">
+        <div>
+          <label for="fName">First name</label>
+          <input required type="text" id="fName" name="fName" value="" />
+        </div>
+        <div>
+          <label for="lName">Last name</label>
+          <input required type="text" id="lName" name="lName" value="" />
+        </div>
+      </div>
+      <div>
+        <label for="town">Town</label>
+        <input required type="text" id="town" name="town" value="" />
+      </div>
+
+      <input type="submit" value="Add Student" class="rounded col-accent" />
+    </form>
+  </section>
+</section>
+
+<hr />
+
+<section>
+  <h2>All Students</h2>
+  <table class="student-list">
+    <tr>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>Town</th>
+      <th></th>
+    </tr>
+    <% locals.students.forEach(student => { %> <%-
+    include('partials/student-table-item.ejs', { student: student }) %> <% }) %>
+  </table>
+</section>
+
+<script>
+  // toggle form visibility
+  const toggleButton = document.querySelector(".toggle-create-form");
+  const buttonIcon = toggleButton.querySelector(".icon");
+  const formWrapper = document.querySelector(".create-form-wrapper");
+
+  toggleButton.addEventListener("click", () => {
+    if (formWrapper.classList.contains("hidden")) {
+      formWrapper.classList.remove("hidden");
+      toggleButton.classList.add("col-surface");
+      buttonIcon.textContent = "remove";
+    } else {
+      formWrapper.classList.add("hidden");
+      toggleButton.classList.remove("col-surface");
+      buttonIcon.textContent = "add";
+    }
+  });
+</script>
+
+<script>
+  // form functionality
+  const form = document.querySelector("form");
+  document.addEventListener("submit", async (e) => {
+    const formData = new FormData(form);
+
+    const response = await fetch("http://localhost:3000/api/students", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(Object.fromEntries(formData)),
+    });
+
+    console.log(await response.json());
+  });
+</script>
+
+<script>
+  // item click functionality
+  const items = document.querySelectorAll(".student");
+  document.addEventListener("click", (e)=>{
+    if(e.target.closest("tr").classList.contains("student")){
+      const student_id = e.target.closest("tr").id.split("_")[1];
+
+      location.href = "/student/" + student_id;
+    }
+  })
+</script>

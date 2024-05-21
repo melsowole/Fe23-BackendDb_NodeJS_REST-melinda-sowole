@@ -1,0 +1,60 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  width: 20%;
+}
+
+th:last-child {
+  width: auto;
+}
+
+tr {
+  border-bottom: 0.5rem solid var(--background);
+}
+
+tr:not(:first-child) {
+  cursor: pointer;
+}
+
+td {
+  padding: 0.75rem;
+  background-color: var(--surface);
+}
+
+td:last-child {
+  text-align: right;
+}
+
+tr:hover td {
+  background-color: var(--surface-container-low);
+}
+
+/* EDIT FORM ITEM */
+
+.edit-form-item-wrapper td {
+  background-color: var(--accent-container);
+  color: var(--on-accent-container);
+}
+
+.edit-form-item-wrapper:hover td {
+  background-color: var(--accent-container);
+}
+
+table form {
+  display: flex;
+}
+
+table form input {
+  display: flex;
+  background-color: transparent;
+  font-size: 1rem;
+  border: none;
+  color: var(--);
+}
+table form * {
+  width: 100%;
+}

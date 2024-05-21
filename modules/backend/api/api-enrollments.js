@@ -18,8 +18,6 @@ export default {
     ORDER BY c.course_id, s.lName
     `);
 
-    console.log(results);
-
     return results;
   },
   async add(student_id, course_id) {
@@ -29,7 +27,6 @@ export default {
     );
 
     if (studentAlreadyEnrolled.length > 0) {
-      console.log("student already in class");
       throw new DBError(409, "Student already enrolled in course");
     }
 
@@ -59,8 +56,6 @@ export default {
     );
 
     const [course] = addStudentsToCourses(result);
-
-    console.log(course);
 
     return course;
   },

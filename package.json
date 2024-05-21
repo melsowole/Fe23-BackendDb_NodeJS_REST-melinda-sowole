@@ -1,7 +1,7 @@
 {
   "name": "fe23-backenddb_nodejs_rest-melinda-sowole",
   "version": "1.0.0",
-  "description": "1. **Start your MySQL server:** Use your preferred local server environment like MAMP, WAMP, or XAMPP to start the MySQL sevrer.\r 2. **Access MySQL:** Open your command line or terminal and navigate to your MySQL installation directory. For example, you might use:",
+  "description": "Final project for backend DB at Grit Academy",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-ejs-layouts": "^2.5.1",
     "mysql2": "^3.9.7"

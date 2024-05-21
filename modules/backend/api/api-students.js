@@ -70,4 +70,16 @@ export default {
       [id]
     );
   },
+  async update(id, fName, lName, town) {
+    await db.query(
+      `
+      UPDATE students
+      SET fName = ?, lName = ?, town = ?
+      WHERE student_id = ?
+    `,
+      [fName, lName, town, id]
+    );
+
+    return { message: "updated student info" };
+  },
 };

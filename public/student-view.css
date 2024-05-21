@@ -1,0 +1,67 @@
+.student-profile {
+  background-color: var(--surface-container);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.title-button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-profile form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.student-profile input {
+  width: 100%;
+  margin-top: 0.25rem;
+
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--on-surface-container);
+
+  border: none;
+}
+
+.student-profile input:disabled {
+  color: var(--on-surface-container);
+}
+
+.student-profile form button[type="submit"] {
+  display: none;
+}
+
+.student-profile form.editable button[type="submit"] {
+  display: block;
+}
+
+/* STUDENT COURSES */
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.student-course,
+form.enroll-in-course {
+  background-color: var(--surface-container);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+form.enroll-in-course {
+  margin-top: 2rem;
+}
+
+.sstu .student-course:hover {
+  background-color: var(--surface-container-high);
+}

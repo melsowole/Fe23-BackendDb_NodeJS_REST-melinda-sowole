@@ -1,6 +1,6 @@
 import { Router } from "express";
-import api from "../modules/api/api.js";
-import { DBError, sendError } from "../modules/db/DBError.js";
+import api from "../api/api.js";
+import { DBError, sendError } from "../db/DBError.js";
 import { containsInvalidQueries } from "./helper.js";
 
 const route = Router();
@@ -18,7 +18,6 @@ route
       const courses = await api.courses.get(req.query);
       res.json(courses);
     } catch (err) {
-      console.log(err);
       sendError(res, err);
     }
   })

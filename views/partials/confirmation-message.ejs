@@ -1,0 +1,11 @@
+<div class="confirmation-message">
+  <p><%- locals.message%></p>
+</div>
+
+<script>
+  const message = document.querySelector(".confirmation-message");
+
+  setTimeout(() => {
+    message.remove();
+  }, 3000);
+</script>
