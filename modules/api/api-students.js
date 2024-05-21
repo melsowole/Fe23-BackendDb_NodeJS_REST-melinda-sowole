@@ -25,6 +25,8 @@ export default {
         `${query} = '${queries[query]}'`;
     }
 
+    queryString += ` ORDER BY lName`;
+
     const results = await db.query(queryString);
 
     return queriesAdded ? addCoursesToStudents(results) : results;

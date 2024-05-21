@@ -49,6 +49,9 @@ route
   })
   .delete(async (req, res) => {
     try {
+      // remove enrollments
+      await api.enrollments.unenrollFromAllCourses(req.params.id);
+      // remove student
       await api.students.delete(req.params.id);
       res.json({ message: "deleted student with id " + req.params.id });
     } catch (err) {
