@@ -16,8 +16,8 @@ router
     const students = await api.students.get();
     res.render("students", {
       students,
-      open: true,
       message: "Added student!",
+      postReqReload: true
     });
   });
 
@@ -49,7 +49,6 @@ router
       const { fName, lName, town } = req.body;
       await api.students.update(req.params.id, fName, lName, town);
       message = "Updated student info!";
-
     }
 
     const student = await api.students.getById(req.params.id);
@@ -61,5 +60,11 @@ router
       message
     });
   });
+
+router.post("/delete-student/:id", async (req, res)=>{
+  await api.enrollments.unenrollFromAllCourses(req.params.id);
+  await api.students.delete(req.params.id);
+  res.redirect("/students");
+})
 
 export default router;

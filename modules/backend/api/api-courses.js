@@ -59,6 +59,22 @@ export default {
 
     return course;
   },
+  async getByName(name) {
+    const results = await db.query(`
+    SELECT 
+      s.*,
+      c.*
+    FROM courses c
+    LEFT JOIN students_courses sc
+      ON c.course_id = sc.course_id
+    LEFT JOIN students s
+      ON  sc.student_id = s.student_id
+    WHERE name = ?`,
+    [name]
+  );
+
+    return addStudentsToCourses(results);
+  },
   async delete(id) {
     return await db.query(
       `

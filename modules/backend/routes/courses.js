@@ -37,6 +37,17 @@ router
     }
   });
 
+  router
+  .route("/name/:name")
+  .get(async (req, res) => {
+    try {
+      const courses = await api.courses.getByName(req.params.name);
+      res.json(courses);
+    } catch (err) {
+      sendError(res, err);
+    }
+  })
+
 router
   .route("/:id")
   .get(async (req, res) => {

@@ -17,7 +17,11 @@ router
 
     // display page
     const courses = await api.courses.get();
-    res.render("courses", { courses, message: "Added course!" });
+    res.render("courses", { 
+      courses, 
+      message: "Added course!",
+      postReqReload:true
+    });
   });
 
 // COURSE VIEW
@@ -57,5 +61,11 @@ router
       message,
     });
   });
+
+router.post("/delete-course/:id", async (req, res)=>{
+  await api.enrollments.unenrollAllStudents(req.params.id);
+  await api.courses.delete(req.params.id);
+  res.redirect("/courses");
+})
 
 export default router;

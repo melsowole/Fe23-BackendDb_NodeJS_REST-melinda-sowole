@@ -2,12 +2,12 @@
 
 <section>
 
-  <button class="toggle-create-form <%= locals.open ? 'col-surface' : 'col-accent'%>">
-    <span class="material-symbols-outlined icon"> <%= locals.open ? "remove" : "add"%> </span>
+  <button class="toggle-create-form col-accent <%= locals.postReqReload ? 'col-surface' : ''%>">
+    <span class="material-symbols-outlined icon"> <%= locals.postReqReload ? "remove" : "add"%> </span>
     <b>Add Student</b>
   </button>
 
-  <section class="create-form-wrapper <%= locals.open ? "" : "hidden"%>">
+  <section class="create-form-wrapper <%= locals.postReqReload ? "" : "hidden"%>">
     <h2>Add student</h2>
     <form action="" method="POST" class="create">
       <div class="half">
