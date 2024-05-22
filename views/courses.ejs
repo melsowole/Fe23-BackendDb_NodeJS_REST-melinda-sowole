@@ -2,7 +2,7 @@
 
 <section>
 
-  <button class="toggle-create-form col-accent <%= locals.postReqReload ? 'col-surface' : ''%>">
+  <button class="toggle-create-form button col-accent <%= locals.postReqReload ? 'col-secondary' : ''%>">
     <span class="material-symbols-outlined icon"> <%= locals.postReqReload ? "remove" : "add"%> </span>
     <b>Add Course</b>
   </button>
@@ -10,16 +10,16 @@
   <section class="create-form-wrapper <%= locals.postReqReload ? "" : "hidden"%>">
     <h2>Add Course</h2>
     <form action="/courses" method="POST" class="create">
-      <div>
+      <div class="input-wrapper">
         <label for="name">Name</label>
         <input required type="text" id="name" name="name" value="" />
       </div>
-      <div>
+      <div class="input-wrapper">
         <label for="description">Description</label>
         <input required type="text" id="description" name="description" value="" />
       </div>
 
-      <input type="submit" value="Add Button" class="button rounded col-accent" />
+      <input type="submit" value="Add Course" class="button rounded col-accent" />
     </form>
   </section>
 </section>
@@ -33,13 +33,20 @@
       <th>Name</th>
       <th >Description</th>
     </tr>
-    <% locals.courses.forEach(course => { %> <%-
-    include('partials/course-table-item.ejs', { course }) %> <% }) %>
+    <% locals.courses.forEach(course => { %> 
+      <tr class="course" id="course_<%-course.course_id%>">
+        <td class="name"><%- course.name%></td>
+        <td class="description"><%- course.description%></td>
+        <td>
+          <a href="/course/<%-course.course_id%>" class="button text">View Course</a>
+        </td>
+      </tr> 
+    <%})%>
   </table>
 </section>
 
+<!-- toggle form visibility -->
 <script>
-  // toggle form visibility
   const toggleButton = document.querySelector(".toggle-create-form");
   const buttonIcon = toggleButton.querySelector(".icon");
   const formWrapper = document.querySelector(".create-form-wrapper");
@@ -47,19 +54,19 @@
   toggleButton.addEventListener("click", () => {
     if (formWrapper.classList.contains("hidden")) {
       formWrapper.classList.remove("hidden");
-      toggleButton.classList.add("col-surface");
+      toggleButton.classList.add("col-secondary");
       buttonIcon.textContent = "remove";
     } else {
       formWrapper.classList.add("hidden");
-      toggleButton.classList.remove("col-surface");
+      toggleButton.classList.remove("col-secondary");
       buttonIcon.textContent = "add";
     }
   });
 </script>
 
 
+<!-- redirect on course click -->
 <script>
-  // course click functionality, redirect to course-view page
   const items = document.querySelectorAll(".course");
   document.addEventListener("click", (e)=>{
     if(e.target.closest("tr").classList.contains("course")){

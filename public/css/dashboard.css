@@ -4,7 +4,7 @@
 }
 
 .dashboard-card {
-  background-color: var(--secondary-container);
+  background-color: var(--primary-container);
   padding: 1.5rem;
   display: flex;
   gap: 1rem;
@@ -13,11 +13,11 @@
 
 .dashboard-card .vr {
   width: 2px;
-  background-color: var(--on-secondary-container);
+  background-color: var(--on-primary-container);
 }
 
 .dashboard-card .icon {
-  background-color: var(--secondary);
+  background-color: var(--primary-container-high);
   padding: 1rem;
   height: 5rem;
   aspect-ratio: 1/1;

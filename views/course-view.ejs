@@ -11,12 +11,15 @@
 <h1><%=course.name%></h1>
 
 <section class="course-profile view-info-wrapper">
-  <div class="title-button-wrapper">
-    <h2>Info</h2>
-    <button id="edit-info" class="icon">edit</button>
-  </div>
   <form action="/course/<%=course.course_id%>" method="POST">
-    <div>
+    <div class="title-button-wrapper">
+      <h2>Info</h2>
+      <div class="info-buttons-wrapper">
+        <button id="edit-info" class="button text">Edit</button>
+        <button id="submit-info" class="button col-secondary">Save</button>
+      </div>
+    </div>
+    <div class="input-wrapper">
       <label for="name">Name</label>
       <input
         type="text"
@@ -28,7 +31,7 @@
       />
     </div>
 
-    <div>
+    <div class="input-wrapper">
       <label for="description">Description</label>
       <input
         type="text"
@@ -40,12 +43,11 @@
       />
     </div>
 
-    <button type="submit">Save</button>
   </form>
 </section>
 
 <form action="/delete-course/<%=course.course_id%>" method="POST">
-  <button>Delete Course</button>
+  <button class="button delete-item">Delete Course</button>
 </form>
 
 <hr />
@@ -67,7 +69,7 @@
           name="student_id"
           value="<%=student.student_id%>"
         />
-        <button>Remove Student</button>
+        <button class="button text">Remove Student</button>
       </form>
     </div>
     <%})%>
@@ -105,7 +107,7 @@
       </div>
       <% }) %>
     </fieldset>
-    <button type="submit">enroll</button>
+    <button class="button col-secondary">enroll</button>
   </form>
 </section>
 

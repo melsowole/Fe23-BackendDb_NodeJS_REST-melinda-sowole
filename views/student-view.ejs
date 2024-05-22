@@ -11,12 +11,16 @@
 <h1>Student Profile</h1>
 <div class="id" id="<%=student.student_id%>"></div>
 <section class="student-profile view-info-wrapper">
-  <div class="title-button-wrapper">
-    <h2>Info</h2>
-    <button id="edit-info" class="icon">edit</button>
-  </div>
   <form action="/student/<%=student.student_id%>" method="post">
-    <div>
+    <div class="title-button-wrapper">
+      <h2>Info</h2>
+      <div class="info-buttons-wrapper">
+        <button id="edit-info" class="button text">edit</button>
+        <button id="submit-info" class="button col-secondary">Save</button>
+      </div>
+    </div>
+
+    <div class="input-wrapper">
       <label for="fName">First Name</label>
       <input
         type="text"
@@ -28,7 +32,7 @@
       />
     </div>
 
-    <div>
+    <div class="input-wrapper">
       <label for="lName">Last Name</label>
       <input
         type="text"
@@ -40,9 +44,8 @@
       />
     </div>
 
-    <div>
+    <div class="input-wrapper">
       <label for="town">Town</label>
-
       <input
         type="text"
         name="town"
@@ -53,12 +56,11 @@
       />
     </div>
 
-    <button type="submit">Save</button>
   </form>
 </section>
 
 <form action="/delete-student/<%=student.student_id%>" method="POST">
-  <button>Delete Student</button>
+  <button class="button delete-item">Delete Student</button>
 </form>
 
 <hr />
@@ -80,7 +82,7 @@
           name="course_id"
           value="<%=course.course_id%>"
         />
-        <button>Unenroll student from course</button>
+        <button class="button text">Unenroll student from course</button>
       </form>
     </div>
     <%})%>
@@ -105,7 +107,7 @@
         <%})%>
       </select>
     </div>
-    <button type="submit">enroll</button>
+    <button class="button col-secondary">enroll</button>
   </form>
 </section>
 

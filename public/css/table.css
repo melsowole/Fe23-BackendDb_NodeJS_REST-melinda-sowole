@@ -26,11 +26,12 @@ td {
 }
 
 td:last-child {
-  text-align: right;
+  display: flex;
+  justify-content: end;
 }
 
 tr:hover td {
-  background-color: var(--surface-container-low);
+  background-color: var(--primary-container);
 }
 
 /* EDIT FORM ITEM */

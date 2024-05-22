@@ -1,6 +1,4 @@
-button,
-.button,
-input[type="submit"] {
+.button {
   cursor: pointer;
   border: none;
   padding: 1rem;
@@ -8,11 +6,22 @@ input[type="submit"] {
 
   background-color: var(--primary);
   color: var(--on-primary);
+
+  display: flex;
+  align-items: center;
+  width: fit-content;
 }
 
-button.rounded,
-.button.rounded,
-input[type="submit"].rounded {
+.button.text{
+  background-color: var(--surface-container-high);
+  color: var(--on-surface);
+  text-decoration: none;
+}
+.button.text:hover{
+  background-color: var(--surface-container-higher);
+}
+
+.button.rounded {
   padding: 0.75rem 2rem;
   border-radius: 2rem;
 
@@ -20,26 +29,27 @@ input[type="submit"].rounded {
   color: var(--on-primary);
 }
 
-button.col-accent,
-.button.col-accent,
-input[type="submit"].col-accent {
+.button.col-accent {
   background-color: var(--accent);
   color: var(--on-accent);
 }
 
-button.col-surface,
-.button.col-surface,
-input[type="submit"].col-surface {
-  background-color: var(--surface-container);
+.button.col-surface{
+  background-color: var(--surface);
   color: var(--on-surface);
 }
 
-button.icon {
+.button.col-secondary{
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+}
+
+
+.button.icon {
   font-size: 1.25rem;
 }
 
-a.button,
-button.icon {
+.button.icon {
   background-color: var(--surface-container);
   color: var(--on-surface);
   border-radius: 0.25rem;
@@ -47,7 +57,6 @@ button.icon {
   text-decoration: none;
 }
 
-a.button:hover,
-button.icon:hover {
+.button.icon:hover {
   background-color: var(--surface-container);
 }

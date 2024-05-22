@@ -2,7 +2,7 @@
 
 <section>
 
-  <button class="toggle-create-form col-accent <%= locals.postReqReload ? 'col-surface' : ''%>">
+  <button class="toggle-create-form button col-accent <%= locals.postReqReload ? 'col-secondary' : ''%>">
     <span class="material-symbols-outlined icon"> <%= locals.postReqReload ? "remove" : "add"%> </span>
     <b>Add Student</b>
   </button>
@@ -10,7 +10,7 @@
   <section class="create-form-wrapper <%= locals.postReqReload ? "" : "hidden"%>">
     <h2>Add student</h2>
     <form action="" method="POST" class="create">
-      <div class="half">
+      <div class="half input-wrapper">
         <div>
           <label for="fName">First name</label>
           <input required type="text" id="fName" name="fName" value="" />
@@ -20,12 +20,12 @@
           <input required type="text" id="lName" name="lName" value="" />
         </div>
       </div>
-      <div>
+      <div class="input-wrapper">
         <label for="town">Town</label>
         <input required type="text" id="town" name="town" value="" />
       </div>
 
-      <input type="submit" value="Add Student" class="rounded col-accent" />
+      <input type="submit" value="Add Student" class="button rounded col-accent" />
     </form>
   </section>
 </section>
@@ -41,13 +41,21 @@
       <th>Town</th>
       <th></th>
     </tr>
-    <% locals.students.forEach(student => { %> <%-
-    include('partials/student-table-item.ejs', { student: student }) %> <% }) %>
+    <% locals.students.forEach(student => { %> 
+      <tr class="student" id="student_<%-student.student_id%>">
+        <td class="lName"><%- student.lName%></td>
+        <td class="fName"><%- student.fName%></td>
+        <td class="town"><%- student.town%></td>
+        <td>
+          <a href="/student/<%-student.student_id%>" class="button text">View Student</a>
+        </td>
+      </tr>
+    <% }) %>
   </table>
 </section>
 
+<!-- toggle form visibility -->
 <script>
-  // toggle form visibility
   const toggleButton = document.querySelector(".toggle-create-form");
   const buttonIcon = toggleButton.querySelector(".icon");
   const formWrapper = document.querySelector(".create-form-wrapper");
@@ -55,36 +63,18 @@
   toggleButton.addEventListener("click", () => {
     if (formWrapper.classList.contains("hidden")) {
       formWrapper.classList.remove("hidden");
-      toggleButton.classList.add("col-surface");
+      toggleButton.classList.add("col-secondary");
       buttonIcon.textContent = "remove";
     } else {
       formWrapper.classList.add("hidden");
-      toggleButton.classList.remove("col-surface");
+      toggleButton.classList.remove("col-secondary");
       buttonIcon.textContent = "add";
     }
   });
 </script>
 
+<!-- redirect on student click -->
 <script>
-  // form functionality
-  const form = document.querySelector("form");
-  document.addEventListener("submit", async (e) => {
-    const formData = new FormData(form);
-
-    const response = await fetch("http://localhost:3000/api/students", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(Object.fromEntries(formData)),
-    });
-
-    console.log(await response.json());
-  });
-</script>
-
-<script>
-  // item click functionality
   const items = document.querySelectorAll(".student");
   document.addEventListener("click", (e)=>{
     if(e.target.closest("tr").classList.contains("student")){
