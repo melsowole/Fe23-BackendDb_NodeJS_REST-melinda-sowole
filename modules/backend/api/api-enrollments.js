@@ -40,6 +40,36 @@ export default {
 
     return { message: "Successfully enrolled student" };
   },
+  async addMany(student_ids, course_id) {
+    // make sure ids is array
+    if(!Array.isArray(student_ids)){
+      student_ids = [student_ids];
+    }
+
+    for(const student_id of student_ids){
+      const studentAlreadyEnrolled = await db.query(
+        `SELECT * FROM students_courses WHERE student_id = ? AND course_id = ?`,
+        [student_id, course_id]
+      );
+  
+      if (studentAlreadyEnrolled.length > 0) {
+        throw new DBError(409, "Student already enrolled in course");
+      }
+    }
+
+    for(const student_id of student_ids){
+      const result = await db.query(
+        `
+          INSERT INTO students_courses (student_id, course_id)
+          VALUES (?, ?)
+        `,
+        [student_id, course_id]
+      );
+      
+    }
+
+    return { message: "Successfully enrolled students" };
+  },
   async getById(id) {
     const result = await db.query(
       `
@@ -60,13 +90,15 @@ export default {
     return course;
   },
   async unenrollStudent(student_id, course_id) {
-    return await db.query(
+    await db.query(
       `
         DELETE FROM students_courses
         WHERE student_id = ?
         AND course_id = ?`,
       [student_id, course_id]
     );
+
+    return { message: "Removed student from course!" };
   },
   async unenrollFromAllCourses(student_id) {
     return await db.query(

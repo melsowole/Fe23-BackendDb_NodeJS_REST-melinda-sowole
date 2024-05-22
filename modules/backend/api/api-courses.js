@@ -67,4 +67,16 @@ export default {
       [id]
     );
   },
+  async update(id, name, description) {
+    await db.query(
+      `
+      UPDATE courses
+      SET name = ?, description = ?
+      WHERE course_id = ?
+    `,
+      [name, description, id]
+    );
+
+    return { message: "Updated course info!" };
+  },
 };

@@ -1,9 +1,9 @@
 .confirmation-message {
   position: absolute;
   top: 2rem;
-  right: 2rem;
+  right: 1rem;
   background-color: var(--secondary-container);
   color: var(--on-secondary-container);
-  padding: 1rem 2rem;
+  padding: 1rem;
   border-radius: 1rem;
 }

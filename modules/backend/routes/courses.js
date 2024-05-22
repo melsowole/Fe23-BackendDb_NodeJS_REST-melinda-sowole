@@ -3,9 +3,9 @@ import api from "../api/api.js";
 import { DBError, sendError } from "../db/DBError.js";
 import { containsInvalidQueries } from "./helper.js";
 
-const route = Router();
+const router = Router();
 
-route
+router
   .route("/")
   .get(async (req, res) => {
     try {
@@ -37,7 +37,7 @@ route
     }
   });
 
-route
+router
   .route("/:id")
   .get(async (req, res) => {
     try {
@@ -59,4 +59,4 @@ route
     }
   });
 
-export default route;
+export default router;

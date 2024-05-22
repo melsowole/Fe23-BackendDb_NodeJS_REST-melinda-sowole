@@ -1,1 +1,71 @@
 <h1>Courses</h1>
+
+<section>
+
+  <button class="toggle-create-form <%= locals.open ? 'col-surface' : 'col-accent'%>">
+    <span class="material-symbols-outlined icon"> <%= locals.open ? "remove" : "add"%> </span>
+    <b>Add Course</b>
+  </button>
+
+  <section class="create-form-wrapper <%= locals.open ? "" : "hidden"%>">
+    <h2>Add Course</h2>
+    <form action="/courses" method="POST" class="create">
+      <div>
+        <label for="name">Name</label>
+        <input required type="text" id="name" name="name" value="" />
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <input required type="text" id="description" name="description" value="" />
+      </div>
+
+      <input type="submit" value="Add Button" class="button rounded col-accent" />
+    </form>
+  </section>
+</section>
+
+<hr />
+
+<section>
+  <h2>All Courses</h2>
+  <table class="course-list">
+    <tr>
+      <th>Name</th>
+      <th >Description</th>
+    </tr>
+    <% locals.courses.forEach(course => { %> <%-
+    include('partials/course-table-item.ejs', { course }) %> <% }) %>
+  </table>
+</section>
+
+<script>
+  // toggle form visibility
+  const toggleButton = document.querySelector(".toggle-create-form");
+  const buttonIcon = toggleButton.querySelector(".icon");
+  const formWrapper = document.querySelector(".create-form-wrapper");
+
+  toggleButton.addEventListener("click", () => {
+    if (formWrapper.classList.contains("hidden")) {
+      formWrapper.classList.remove("hidden");
+      toggleButton.classList.add("col-surface");
+      buttonIcon.textContent = "remove";
+    } else {
+      formWrapper.classList.add("hidden");
+      toggleButton.classList.remove("col-surface");
+      buttonIcon.textContent = "add";
+    }
+  });
+</script>
+
+
+<script>
+  // course click functionality, redirect to course-view page
+  const items = document.querySelectorAll(".course");
+  document.addEventListener("click", (e)=>{
+    if(e.target.closest("tr").classList.contains("course")){
+      const course_id = e.target.closest("tr").id.split("_")[1];
+
+      location.href = "/course/" + course_id;
+    }
+  })
+</script>

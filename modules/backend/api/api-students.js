@@ -80,6 +80,6 @@ export default {
       [fName, lName, town, id]
     );
 
-    return { message: "updated student info" };
+    return { message: "Updated student info!" };
   },
 };

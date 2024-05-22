@@ -7,6 +7,8 @@
     <title>Grit Academy</title>
   </head>
   <body>
+    <% if (locals.message) { %> <%- include('partials/confirmation-message.ejs',
+    { message }) %> <% } %>
     <header>
       <div class="logo-wrapper">
         <!-- <?xml version="1.0" encoding="UTF-8"?><svg

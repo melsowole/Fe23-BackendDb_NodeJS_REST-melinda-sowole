@@ -1,0 +1,132 @@
+<% 
+  const courseStudents = course.students.map(s=>s.student_id); 
+  students = students.map(s=>{ 
+    if(courseStudents.includes(s.student_id)){ 
+      s.enrolled = true;
+    } 
+    return s; 
+  }) 
+%>
+
+<h1><%=course.name%></h1>
+
+<section class="course-profile view-info-wrapper">
+  <div class="title-button-wrapper">
+    <h2>Info</h2>
+    <button id="edit-info" class="icon">edit</button>
+  </div>
+  <form action="/course/<%=course.course_id%>" method="POST">
+    <div>
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        value="<%-course.name%>"
+        disabled
+        required
+      />
+    </div>
+
+    <div>
+      <label for="description">Description</label>
+      <input
+        type="text"
+        name="description"
+        id="description"
+        value="<%-course.description%>"
+        disabled
+        required
+      />
+    </div>
+
+    <button type="submit">Save</button>
+  </form>
+</section>
+
+<hr />
+
+<section class="enrolled-list">
+  <h2>Students</h2>
+
+  <div class="items-wrapper">
+    <% course.students.forEach(student=>{%>
+    <div class="course-student item" id="student_<%-student.student_id%>">
+      <a  href="/student/<%=student.student_id%>">
+        <span><%- student.fName%></span>
+        <span><%- student.lName%></span>
+      </a>
+      <form action="/course/<%=course.course_id%>" method="POST">
+        <input type="hidden" name="method" value="UNENROLL" />
+        <input
+          type="hidden"
+          name="student_id"
+          value="<%=student.student_id%>"
+        />
+        <button>Remove Student</button>
+      </form>
+    </div>
+    <%})%>
+  </div>
+
+  <form
+    class="enroll-in-course"
+    action="/course/<%=course.course_id%>"
+    method="POST"
+  >
+    <input type="hidden" name="method" value="ENROLL" />
+
+    <fieldset required>
+      <legend>Select students to enroll:</legend>
+      <% students.forEach(student => { %>
+      <div>
+        <input
+          type="checkbox"
+          <%if(student.enrolled){%>
+            checked
+            disabled
+          <%} else {%>
+            id="student_<%= student.student_id %>"
+            value="<%= student.student_id %>"
+            name="student_ids"
+          <%} %>
+        />
+        <label
+          <%if(!student.enrolled){%>
+            for="student_<%= student.student_id %>"
+          <%} %>
+          >
+            <%= student.fName %> <%= student.lName %>
+          </label>
+      </div>
+      <% }) %>
+    </fieldset>
+    <button type="submit">enroll</button>
+  </form>
+</section>
+
+<!-- make profile editable -->
+<script>
+  const editInfoButton = document.getElementById("edit-info");
+  const infoInputs = document.querySelectorAll(".course-profile input");
+  const infoInputsData = Array.from(infoInputs).map((input) => input.value);
+  const infoForm = document.querySelector(".course-profile form");
+
+  editInfoButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (infoForm.classList.contains("editable")) {
+      infoForm.classList.remove("editable");
+      editInfoButton.textContent = "edit";
+      infoInputs.forEach((input, i) => {
+        input.disabled = true;
+        input.value = infoInputsData[i];
+      });
+    } else {
+      infoForm.classList.add("editable");
+      editInfoButton.textContent = "cancel";
+      infoInputs.forEach((input) => (input.disabled = false));
+    }
+  });
+</script>
+
