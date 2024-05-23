@@ -13,6 +13,9 @@ router
     res.render("students", { students });
   })
   .post(async (req, res) => {
+    const {fName, lName, town } = req.body;
+    await api.students.add(fName, lName, town);
+    
     const students = await api.students.get();
     res.render("students", {
       students,
